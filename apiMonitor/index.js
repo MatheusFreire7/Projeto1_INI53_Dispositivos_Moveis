@@ -7,31 +7,31 @@ let arrayMonitor = [
     {
         "id": "1",
         "nome": "Bruno Borges de Oliveira",
-        "avatar": "./assets/Bruno_Borges_Oliveira_avatar.png",
+        "avatar": "./assets/Bruno_Borges_Oliveira_avatar.jpeg",
         "email": "cc22123@g.unicamp.br"
     },
     {
         "id": "2",
         "nome": "Miguel Lopes Braido",
-        "avatar": "./assets/Miguel_Lopes_Braido_avatar.png",
+        "avatar": "./assets/Miguel_Lopes_Braido_avatar.jpeg",
         "email": "cc22327@g.unicamp.br"
     },
     {
         "id": "3",
         "nome": "Bruno Silva Concli",
-        "avatar": "./assets/Bruno_Silva_Concli_avatar.png",
+        "avatar": "./assets/Bruno_Silva_Concli_avatar.jpeg",
         "email": "cc22303@g.unicamp.br"
     },
     {
         "id": "4",
         "nome": "Isabela Thais Santos Bergamo",
-        "avatar": "./assets/Isabela_Thais_Santos_Bergamo_avatar.png",
+        "avatar": "./assets/Isabela_Thais Santos_Bergamo_avatar.jpeg",
         "email": "cc20676@g.unicamp.br"
     },
     {
         "id": "5",
         "nome": "João Pedro F. Barbosa",
-        "avatar": "./assets/Joao_Pedro_Barbosa_avatar.png",
+        "avatar": "./assets/Joao_Pedro_Barbosa_avatar.jpeg",
         "email": "cc21687@g.unicamp.br"
     },
 ];

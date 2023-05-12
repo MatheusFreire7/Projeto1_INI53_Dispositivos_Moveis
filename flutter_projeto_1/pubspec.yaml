@@ -64,11 +64,11 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
-    - assets/Bruno_Borges_Oliveira_avatar.png
-    - assets/Bruno_Silva_Concli_avatar.png
-    - assets/Isabela_Thais_Santos_Bergamo_avatar.png
-    - assets/Joao_Pedro_Barbosa_avatar.png
-    - assets/Miguel_Lopes_Braido_avatar.png
+    - assets/Bruno_Borges_Oliveira_avatar.jpeg
+    - assets/Bruno_Silva_Concli_avatar.jpeg
+    - assets/Isabela_Thais Santos_Bergamo_avatar.jpeg
+    - assets/Joao_Pedro_Barbosa_avatar.jpeg
+    - assets/Miguel_Lopes_Braido_avatar.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
