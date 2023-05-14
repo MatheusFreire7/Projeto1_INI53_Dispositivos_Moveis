@@ -42,33 +42,17 @@ let horarios_monitor = [
         "segunda": {
             "manha": { "comeco": "10:45", "local": "Claudio", "termino": "11:30" },
             "tarde": { "comeco": "13:30", "local": "Multidisciplinar", "termino": "18:15" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
         "terca": {
             "manha": { "comeco": "08:15", "local": "Claudio", "termino": "10:45" },
             "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "15:00" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
         "quarta": {
             "manha": { "comeco": "10:45", "local": "Claudio", "termino": "11:30" },
-            "tarde": { "comeco": "", "local": "", "termino": "" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
         "quinta": {
             "manha": { "comeco": "10:00", "local": "Claudio", "termino": "12:15" },
-            "tarde": { "comeco": "", "local": "", "termino": "" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
-        "sexta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
-            "tarde": { "comeco": "", "local": "", "termino": "" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
-        },
-        "sabado": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
-            "tarde": { "comeco": "", "local": "", "termino": "" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
-        }
     },
     {
         "nome": "Miguel Lopes Braido",
@@ -78,96 +62,61 @@ let horarios_monitor = [
             "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" }
         },
         "terca": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "14:15" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
         "quarta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "14:15" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
         "quinta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "14:15" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
         "sexta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "16:00", "local": "Multidisciplinar", "termino": "18:15" },
             "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" }
         },
-        "sabado": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
-            "tarde": { "comeco": "", "local": "", "termino": "" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
-        }
     },
     {
         "nome": "Bruno Silva Concli",
         "segunda": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "16:00", "local": "Multi", "termino": "19:00" },
             "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:45" }
         },
         "terca": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "14:15", "local": "Claudio", "termino": "15:00" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
         "quarta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "16:45", "local": "Claudio", "termino": "18:15" },
-            "noite": { "comeco": "18:15", "local": "", "termino": "19:00" }
+            "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" }
         },
         "quinta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "15:00", "local": "Claudio", "termino": "18:15" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
         "sexta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
         },
-        "sabado": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
-            "tarde": { "comeco": "", "local": "", "termino": "" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
-        }
     },
     {
         "nome": "Isabela Thais Santos Bergamo",
         "segunda": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "17:30", "local": "Multi", "termino": "19:00" },
             "noite": { "comeco": "20:30", "local": "Lapa", "termino": "21:15" }
         },
         "terca": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
             "noite": { "comeco": "19:00", "local": "Lapa", "termino": "23:00" }
         },
         "quarta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
             "noite": { "comeco": "19:00", "local": "Lapa", "termino": "23:00" }
         },
         "quinta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
             "noite": { "comeco": "19:00", "local": "Lapa", "termino": "23:00" }
         },
         "sexta": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
             "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
             "noite": { "comeco": "19:00", "local": "Lapa", "termino": "23:00" }
         },
-        "sabado": {
-            "manha": { "comeco": "", "local": "", "termino": "" },
-            "tarde": { "comeco": "", "local": "", "termino": "" },
-            "noite": { "comeco": "", "local": "", "termino": "" }
-        }
     }
 ]
 
@@ -206,13 +155,22 @@ app.get('/api/monitor/get', function (req, res) {
     return res.json(item);
   });
   
-  // Método para obter os horários de um monitor específico
-  // Exemplo: http://localhost:3000/api/monitor/horarios/Bruno%20Borges%20de%20Oliveira
-  app.get('/api/monitor/horarios/:nome', (req, res) => {
-    const nome = req.params.nome;
-    const horarios = horarios_monitor.find(item => item.nome === nome);
-    return res.json(horarios);
-  });
+    // Método para obter os horários de um monitor específico
+    // Exemplo: http://localhost:3000/api/monitor/horarios/Bruno%20Borges%20de%20Oliveira
+    app.get('/api/monitor/horarios/:nome', (req, res) => {
+        setTimeout(function () {
+        const nome = req.params.nome;
+        const monitor = horarios_monitor.find(item => item.nome === nome);
+        
+        if (monitor) {
+            const horarios = monitor;
+            res.header('Access-Control-Allow-Origin', '*').status(200).send(horarios);
+        } else {
+            res.header('Access-Control-Allow-Origin', '*').status(404).send('Horários do monitor não encontrados');
+        }
+        }, 3000);
+    });
+  
   
   app.listen(3000);
   console.log('A API está no ar');

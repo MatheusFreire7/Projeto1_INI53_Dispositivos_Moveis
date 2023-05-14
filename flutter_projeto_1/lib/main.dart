@@ -1,30 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'horarioMonitor.dart';
+import 'monitor.dart';
 
 void main() => runApp(MyApp());
-
-class Monitor {
-  final String id;
-  final String nome;
-  final String avatar;
-  final String email;
-  final HorarioMonitor horarios; // Adicione esta linha
-
-  Monitor(
-      {required this.id,
-      required this.nome,
-      required this.avatar,
-      required this.email,
-      required this.horarios}); // Atualize o construtor
-}
-
-class HorarioMonitor {
-  final String nome;
-  final Map<String, Map<String, Map<String, String>>> horarios;
-
-  HorarioMonitor({required this.nome, required this.horarios});
-}
 
 class MyApp extends StatelessWidget {
   @override
@@ -95,13 +75,13 @@ class _HomePageState extends State<HomePage> {
             title: Text(monitors[index].nome),
             subtitle: Text(monitors[index].email),
             onTap: () {
-            Navigator.pushNamed(
-              context,
-              '/details',
-              arguments: monitors[index],
-            );
-          },
-        );
+              Navigator.pushNamed(
+                context,
+                '/details',
+                arguments: monitors[index],
+              );
+            },
+          );
         },
       ),
     );
@@ -111,7 +91,19 @@ class _HomePageState extends State<HomePage> {
 class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Monitor monitor = ModalRoute.of(context)!.settings.arguments as Monitor;
+    final Monitor monitor =
+        ModalRoute.of(context)!.settings.arguments as Monitor;
+
+    if (monitor == null) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('Erro'),
+        ),
+        body: Center(
+          child: Text('Monitor não encontrado'),
+        ),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -121,40 +113,70 @@ class DetailsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            monitor.nome,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            'Nome: ${monitor.nome}',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 20),
-          FutureBuilder<void>(
+          FutureBuilder<HorarioMonitor>(
             future: getHorarios(monitor.nome),
-            builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+            builder:
+                (BuildContext context, AsyncSnapshot<HorarioMonitor> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return CircularProgressIndicator();
               } else if (snapshot.hasError) {
                 print(snapshot.error);
                 return Text('Erro ao carregar horários do monitor');
               } else {
-                return Expanded(
-                  child: ListView.builder(
-                    itemCount: monitor.horarios.horarios.length, // Acessando o comprimento do mapa de horários
-                    itemBuilder: (context, index) {
-                      String diaSemana = monitor.horarios.horarios.keys.toList()[index]; // Acessando as chaves do mapa de horários
-                      Map<String, Map<String, String>> horariosDia = monitor.horarios.horarios[diaSemana]!;
-                      return ListTile(
-                        title: Text(diaSemana),
-                        subtitle: Column(
-                          children: horariosDia.entries.map((entry) {
-                            String hora = entry.key;
-                            String descricao = entry.value['descricao'] ?? '';
-                            return ListTile(
-                              title: Text(hora),
-                              subtitle: Text(descricao),
+                final horariosMonitor = snapshot.data;
+                return Column(
+                  children: horariosMonitor!.horarios.entries.map((entry) {
+                    final diaSemana = entry.key;
+                    final horariosDia = entry.value;
+
+                    return Column(
+                      children: [
+                        SizedBox(height: 20),
+                        Text(
+                          'Horário da Semana - $diaSemana:',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Wrap(
+                          spacing: 10.0,
+                          runSpacing: 10.0,
+                          children: horariosDia.entries.map((horarioEntry) {
+                            final horario = horarioEntry.key;
+                            final detalhes = horarioEntry.value;
+                            final comeco =
+                                detalhes['comeco'] ?? 'Não informado';
+                            final local = detalhes['local'] ?? 'Não informado';
+                            final termino =
+                                detalhes['termino'] ?? 'Não informado';
+                            return Container(
+                              width: MediaQuery.of(context).size.width *
+                                  0.45, // Adjust the width as needed
+                              child: Card(
+                                child: ListTile(
+                                  title: Text(horario),
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Início: $comeco'),
+                                      Text('Local: $local'),
+                                      Text('Término: $termino'),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             );
                           }).toList(),
                         ),
-                      );
-                    },
-                  ),
+                      ],
+                    );
+                  }).toList(),
                 );
               }
             },
@@ -163,20 +185,41 @@ class DetailsPage extends StatelessWidget {
       ),
     );
   }
+}
 
-  Future<HorarioMonitor> getHorarios(String nome) async {
-    final encodedNome = Uri.encodeComponent(nome); // Codifica o nome do monitor
-    final response = await http.get(Uri.parse('http://localhost:3000/api/monitor/horarios/$encodedNome'));
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      HorarioMonitor horarioMonitor = HorarioMonitor(
-        nome: nome,
-        horarios: data,
-      );
-      return horarioMonitor;
-    } else {
-     
-      throw Exception('Falha ao carregar horários do monitor');
+Future<HorarioMonitor> getHorarios(String nome) async {
+  final response = await http
+      .get(Uri.parse('http://localhost:3000/api/monitor/horarios/$nome'));
+
+  if (response.statusCode == 200) {
+    final data = jsonDecode(response.body);
+
+    if (data is Map<String, dynamic>) {
+      Map<String, dynamic> horariosData = data;
+      HorarioMonitor horarios = HorarioMonitor(nome: nome, horarios: {});
+
+      horariosData.forEach((diaSemana, horariosDia) {
+        if (horariosDia is Map<String, dynamic>) {
+          Map<String, dynamic> horariosDiaMap = horariosDia;
+          Map<String, Map<String, String>> horariosDiaMapConverted = {};
+
+          horariosDiaMap.forEach((horario, detalhes) {
+            if (detalhes is Map<String, dynamic>) {
+              Map<String, dynamic> detalhesMap = detalhes;
+              if (horario is String && detalhesMap is Map<String, dynamic>) {
+                horariosDiaMapConverted[horario] = detalhesMap
+                    .map((key, value) => MapEntry(key, value.toString()));
+              }
+            }
+          });
+
+          horarios.horarios[diaSemana] = horariosDiaMapConverted;
+        }
+      });
+
+      return horarios;
     }
   }
+
+  return HorarioMonitor(nome: '', horarios: {});
 }
