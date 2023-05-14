@@ -149,14 +149,11 @@ class DetailsPage extends StatelessWidget {
                           children: horariosDia.entries.map((horarioEntry) {
                             final horario = horarioEntry.key;
                             final detalhes = horarioEntry.value;
-                            final comeco =
-                                detalhes['comeco'] ?? 'Não informado';
+                            final comeco = detalhes['comeco'] ?? 'Não informado';
                             final local = detalhes['local'] ?? 'Não informado';
-                            final termino =
-                                detalhes['termino'] ?? 'Não informado';
+                            final termino = detalhes['termino'] ?? 'Não informado';
                             return Container(
-                              width: MediaQuery.of(context).size.width *
-                                  0.45, // Adjust the width as needed
+                              width: MediaQuery.of(context).size.width * 0.45,
                               child: Card(
                                 child: ListTile(
                                   title: Text(horario),
