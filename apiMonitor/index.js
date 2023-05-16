@@ -44,11 +44,11 @@ let horarios_monitor = [
         },
         "quarta": {
             "manha": { "comeco": "08:15", "local": "Claudio", "termino": "10:45" },
-            "tarde": {"comeco":"13:30","local": "Multidisciplinar", "termino":"18:15"},
+            "tarde": { "comeco": "13:30", "local": "Multidisciplinar", "termino": "18:15" },
         },
         "sexta": {
             "manha": { "comeco": "10:45", "local": "Claudio", "termino": "11:30" },
-            "tarde": {"comeco":"13:30","local": "Claudio", "termino":"15:00"},
+            "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "15:00" },
         },
         "sabado": {
             "manha": { "comeco": "10:00", "local": "Claudio", "termino": "12:15" },
@@ -109,60 +109,80 @@ let horarios_monitor = [
         "sexta": {
             "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
         },
+    },
+    {
+        "nome": "João Pedro F. Barbosa",
+        "segunda": {
+            "tarde": { "comeco": "17:30", "local": "Multidisciplinar", "termino": "19:00" },
+            "noite": { "comeco": "20:30", "local": "Lapa", "termino": "21:15" }
+        },
+        "terca": {
+            "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
+            "noite": { "comeco": "19:00", "local": "Lapa", "termino": "23:00" }
+        },
+        "quarta": {
+            "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
+        },
+        "quinta": {
+            "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
+        },
+        "sexta": {
+            "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
+        },
     }
 ]
 
 app.get('/api/monitor/get', function (req, res) {
     setTimeout(function () {
-      res.header('Access-Control-Allow-Origin', '*').send(200, arrayMonitor);
+        res.header('Access-Control-Allow-Origin', '*').send(200, arrayMonitor);
     }, 3000);
-  });
-  
-  app.get('/api/monitor/getNome/:nome', (req, res) => {
+});
+
+app.get('/api/monitor/getNome/:nome', (req, res) => {
     const nome = req.params.nome;
     const item = arrayMonitor.find(item => item.nome == nome);
     return res.json(item);
-  });
-  
-  app.post('/api/monitor/post', (req, res) => {
+});
+
+app.post('/api/monitor/post', (req, res) => {
     const id = req.body.id;
     const nome = req.body.nome;
     const avatar = req.body.avatar;
     const email = req.body.email;
     return res.json({ id, nome, avatar, email });
-  });
-  
-  app.put('/api/monitor/put/:id', (req, res) => {
+});
+
+app.put('/api/monitor/put/:id', (req, res) => {
     const id = req.params.id;
     const item = arrayMonitor.find(item => item.id == id);
     item.nome = req.body.nome;
     item.avatar = req.body.avatar;
     item.email = req.body.email;
     return res.json(item);
-  });
-  
-  app.get('/api/monitor/delete/:id', (req, res) => {
+});
+
+app.get('/api/monitor/delete/:id', (req, res) => {
     const id = req.params.id;
     const item = arrayMonitor.find(item => item.id == id);
     return res.json(item);
-  });
-  
-    // Método para obter os horários de um monitor específico
-    // Exemplo: http://localhost:3000/api/monitor/horarios/Bruno%20Borges%20de%20Oliveira
-    app.get('/api/monitor/horarios/:nome', (req, res) => {
-        setTimeout(function () {
+});
+
+// Método para obter os horários de um monitor específico
+// Exemplo: http://localhost:3000/api/monitor/horarios/Bruno%20Borges%20de%20Oliveira
+app.get('/api/monitor/horarios/:nome', (req, res) => {
+    setTimeout(function () {
         const nome = req.params.nome;
         const monitor = horarios_monitor.find(item => item.nome === nome);
-        
+
         if (monitor) {
             const horarios = monitor;
             res.header('Access-Control-Allow-Origin', '*').status(200).send(horarios);
         } else {
             res.header('Access-Control-Allow-Origin', '*').status(404).send('Horários do monitor não encontrados');
         }
-        }, 3000);
-    });
-  
-  
-  app.listen(3000);
-  console.log('A API está no ar');
+    }, 3000);
+});
+
+
+app.listen(3000);
+console.log('A API está no ar');

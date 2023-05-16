@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -40,8 +38,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> getMonitors() async {
-    final response =
-        await http.get(Uri.parse('http://localhost:3000/api/monitor/get'));
+    final response = await http.get(Uri.parse('http://localhost:3000/api/monitor/get'));
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       List<Monitor> fetchedMonitors = [];
@@ -65,7 +62,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Monitores DPD'),
+        title: const Text('Monitores DPD'),
       ),
       body: ListView.builder(
         itemCount: monitors.length,
@@ -99,9 +96,9 @@ class DetailsPage extends StatelessWidget {
     if (monitor == null) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Erro'),
+          title: const Text('Erro'),
         ),
-        body: Center(
+        body: const Center(
           child: Text('Monitor não encontrado'),
         ),
       );
@@ -109,24 +106,24 @@ class DetailsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalhes do Monitor'),
+        title: Text('Detalhes do Monitor(a): ${monitor.nome}' ),
       ),
       body: Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'Nome: ${monitor.nome}',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           FutureBuilder<HorarioMonitor>(
             future: getHorarios(monitor.nome),
             builder:
                 (BuildContext context, AsyncSnapshot<HorarioMonitor> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               } else if (snapshot.hasError) {
                 print(snapshot.error);
-                return Text('Erro ao carregar horários do monitor');
+                return const Text('Erro ao carregar horários do monitor');
               } else {
                 final horariosMonitor = snapshot.data;
                 return Column(
@@ -136,15 +133,15 @@ class DetailsPage extends StatelessWidget {
 
                     return Column(
                       children: [
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Text(
                           'Horário da Semana - ${diaSemana.toUpperCase()}:',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Wrap(
                           spacing: 10.0,
                           runSpacing: 10.0,
@@ -166,7 +163,7 @@ class DetailsPage extends StatelessWidget {
                                 child: ListTile(
                                   title: Text(
                                     horario.toUpperCase(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors
                                           .white, // Adicionando a cor do texto do título
@@ -177,22 +174,22 @@ class DetailsPage extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                         'Local: ${local.toUpperCase()}',
-                                        style: TextStyle(
+                                         'Local: $local',
+                                        style: const TextStyle(
                                           color: Colors
                                               .white, // Adicionando a cor do texto do subtítulo
                                         ),
                                       ),
                                       Text(
                                         'Início: ${comeco.toUpperCase()}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Colors
                                               .white, // Adicionando a cor do texto do subtítulo
                                         ),
                                       ),
                                       Text(
                                         'Término: ${termino.toUpperCase()}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Colors
                                               .white, // Adicionando a cor do texto do subtítulo
                                         ),
