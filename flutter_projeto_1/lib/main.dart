@@ -136,7 +136,7 @@ class DetailsPage extends StatelessWidget {
                       children: [
                         SizedBox(height: 20),
                         Text(
-                          'Horário da Semana - $diaSemana:',
+                          'Horário da Semana - ${diaSemana.toUpperCase()}:',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -149,21 +149,52 @@ class DetailsPage extends StatelessWidget {
                           children: horariosDia.entries.map((horarioEntry) {
                             final horario = horarioEntry.key;
                             final detalhes = horarioEntry.value;
-                            final comeco = detalhes['comeco'] ?? 'Não informado';
+                            final comeco =  detalhes['comeco'] ?? 'Não informado';
                             final local = detalhes['local'] ?? 'Não informado';
                             final termino = detalhes['termino'] ?? 'Não informado';
                             return Container(
                               width: MediaQuery.of(context).size.width * 0.45,
                               child: Card(
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                color: Colors
+                                    .blue, // Adicionando a cor de fundo do card
                                 child: ListTile(
-                                  title: Text(horario),
+                                  title: Text(
+                                    horario.toUpperCase(),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors
+                                          .white, // Adicionando a cor do texto do título
+                                    ),
+                                  ),
                                   subtitle: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text('Início: $comeco'),
-                                      Text('Local: $local'),
-                                      Text('Término: $termino'),
+                                      Text(
+                                         'Local: ${local.toUpperCase()}',
+                                        style: TextStyle(
+                                          color: Colors
+                                              .white, // Adicionando a cor do texto do subtítulo
+                                        ),
+                                      ),
+                                      Text(
+                                        'Início: ${comeco.toUpperCase()}',
+                                        style: TextStyle(
+                                          color: Colors
+                                              .white, // Adicionando a cor do texto do subtítulo
+                                        ),
+                                      ),
+                                      Text(
+                                        'Término: ${termino.toUpperCase()}',
+                                        style: TextStyle(
+                                          color: Colors
+                                              .white, // Adicionando a cor do texto do subtítulo
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),

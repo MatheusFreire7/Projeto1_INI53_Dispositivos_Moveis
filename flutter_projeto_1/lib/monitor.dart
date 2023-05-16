@@ -6,12 +6,12 @@ class Monitor {
   final String nome;
   final String avatar;
   final String email;
-  final HorarioMonitor horarios; // Adicione esta linha
+  final HorarioMonitor horarios;
 
   Monitor(
       {required this.id,
       required this.nome,
       required this.avatar,
       required this.email,
-      required this.horarios}); // Atualize o construtor
+      required this.horarios}); 
 }
