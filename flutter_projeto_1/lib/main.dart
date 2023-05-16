@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -109,7 +111,7 @@ class DetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Detalhes do Monitor'),
       ),
-      body: Column(
+      body: Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
@@ -211,6 +213,7 @@ class DetailsPage extends StatelessWidget {
           ),
         ],
       ),
+    )
     );
   }
 }

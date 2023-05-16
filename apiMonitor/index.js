@@ -39,66 +39,61 @@ let arrayMonitor = [
 let horarios_monitor = [
     {
         "nome": "Bruno Borges de Oliveira",
-        "segunda": {
-            "manha": { "comeco": "10:45", "local": "Claudio", "termino": "11:30" },
-            "tarde": { "comeco": "13:30", "local": "Multidisciplinar", "termino": "18:15" },
-        },
         "terca": {
-            "manha": { "comeco": "08:15", "local": "Claudio", "termino": "10:45" },
-            "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "15:00" },
+            "manha": { "comeco": "10:45", "local": "Claudio", "termino": "11:30" },
         },
         "quarta": {
-            "manha": { "comeco": "10:45", "local": "Claudio", "termino": "11:30" },
+            "manha": { "comeco": "08:15", "local": "Claudio", "termino": "10:45" },
+            "tarde": {"comeco":"13:30","local": "Multidisciplinar", "termino":"18:15"},
         },
-        "quinta": {
+        "sexta": {
+            "manha": { "comeco": "10:45", "local": "Claudio", "termino": "11:30" },
+            "tarde": {"comeco":"13:30","local": "Claudio", "termino":"15:00"},
+        },
+        "sabado": {
             "manha": { "comeco": "10:00", "local": "Claudio", "termino": "12:15" },
         },
     },
     {
         "nome": "Miguel Lopes Braido",
         "segunda": {
-            "manha": { "comeco": "07:30", "local": "Claudio", "termino": "12:15" },
-            "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "14:15" },
-            "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" }
+            "tarde": { "comeco": "13:30", "local": "Claudio e Multidisciplinar", "termino": "18:15" },
         },
         "terca": {
-            "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "14:15" },
+            "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" },
         },
         "quarta": {
-            "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "14:15" },
+            "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" },
         },
         "quinta": {
             "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "14:15" },
         },
         "sexta": {
-            "tarde": { "comeco": "16:00", "local": "Multidisciplinar", "termino": "18:15" },
-            "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" }
+            "tarde": { "comeco": "13:30", "local": "Claudio", "termino": "18:15" },
+        },
+        "sabado": {
+            "manha": { "comeco": "07:30", "local": "Claudio", "termino": "12:15" },
         },
     },
     {
         "nome": "Bruno Silva Concli",
         "segunda": {
-            "tarde": { "comeco": "16:00", "local": "Multi", "termino": "19:00" },
-            "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:45" }
+            "tarde": { "comeco": "16:00", "local": "Multidisciplinar e Claudio", "termino": "19:00" },
         },
         "terca": {
-            "tarde": { "comeco": "14:15", "local": "Claudio", "termino": "15:00" },
-        },
-        "quarta": {
-            "tarde": { "comeco": "16:45", "local": "Claudio", "termino": "18:15" },
-            "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" }
+            "tarde": { "comeco": "14:15", "local": "Claudio e Multidisciplinar", "termino": "18:15" },
         },
         "quinta": {
-            "tarde": { "comeco": "15:00", "local": "Claudio", "termino": "18:15" },
+            "noite": { "comeco": "18:15", "local": "Claudio", "termino": "19:45" },
         },
         "sexta": {
-            "tarde": { "comeco": "18:15", "local": "Claudio", "termino": "19:00" },
+            "tarde": { "comeco": "16:45", "local": "Claudio", "termino": "18:15" },
         },
     },
     {
         "nome": "Isabela Thais Santos Bergamo",
         "segunda": {
-            "tarde": { "comeco": "17:30", "local": "Multi", "termino": "19:00" },
+            "tarde": { "comeco": "17:30", "local": "Multidisciplinar", "termino": "19:00" },
             "noite": { "comeco": "20:30", "local": "Lapa", "termino": "21:15" }
         },
         "terca": {
@@ -107,15 +102,12 @@ let horarios_monitor = [
         },
         "quarta": {
             "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
-            "noite": { "comeco": "19:00", "local": "Lapa", "termino": "23:00" }
         },
         "quinta": {
             "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
-            "noite": { "comeco": "19:00", "local": "Lapa", "termino": "23:00" }
         },
         "sexta": {
             "tarde": { "comeco": "17:30", "local": "Claudio", "termino": "19:00" },
-            "noite": { "comeco": "19:00", "local": "Lapa", "termino": "23:00" }
         },
     }
 ]
